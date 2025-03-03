@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+.button {
+    border-radius: 4px;
+    background-color: black;
+    color: white;
+}
+
+:root {
+    --var-body-bg: #eee;
+    --var-body-font-color: #222;
+    --var-dark-body-bg: #333;
+    /* --var-dfc means --var-dark-font-color*/
+    --var-dfc: #999;
+}
+
+:root:has(#light:checked) {
+    background-color: var(--var-body-bg);
+    color: var(--var-body-font-color);
+}
+
+:root:has(#dark:checked) {
+    background-color: var(--var-dark-body-bg);
+    color: var(--var-dfc);
+}
+
+.set_color {
+    display: inline-block;
+}
+    </style>
+    <script>
+        // Values
+let num1 = 0;
+let num2 = 0;
+let sum1 = 0;
+let sub1 = 0;
+let product_of_numbers = 0;
+let quotient = 0;
+let raising1 = 0;
+let raisingroot = 0;
+
+
+// Functions
+function clearNumber() {
+   document.getElementById("result").innerHTML = "__";
+};
+
+function sum() {
+    num1 = document.getElementById('num1').value ;
+    num2 = document.getElementById('num2').value ;
+    sum1 = Number(num1) + Number(num2);
+    document.getElementById("result").innerHTML = "the sum is: " + sum1;
+}
+
+function sub() {
+    num1 = document.getElementById('num1').value ;
+    num2 = document.getElementById('num2').value ;
+    sub1 = Number(num1) - Number(num2);
+    document.getElementById("result").innerHTML = "the sum is: " + sub1;
+};
+
+function multyply() {
+    num1 = document.getElementById('num1').value ;
+    num2 = document.getElementById('num2').value ;
+    product_of_numbers = Number(num1) * Number(num2);
+    document.getElementById("result").innerHTML = "the sum is: " + product_of_numbers;
+};
+
+function divide() {
+    num1 = document.getElementById('num1').value ;
+    num2 = document.getElementById('num2').value ;
+    quotient = Number(num1) / Number(num2);
+    document.getElementById("result").innerHTML = "the quotient is: " + quotient;
+};
+
+function raising() {
+    num1 = document.getElementById('num1').value ;
+    num2 = document.getElementById('num2').value ;
+    raising1 = Number(num1) ** Number(num2);
+    document.getElementById("result").innerHTML = "the raising is: " + raising1;
+};
+
+function calculateLog() { 
+    let num1 = document.getElementById('num1').value;
+    let num2 = document.getElementById('num2').value;
+    let result = Math.log(Number(num1)) / Math.log(Number(num2));
+    document.getElementById("result").innerHTML = "Logarithm result: " + result;
+};
+
+function calculateRoot() { 
+    let num1 = document.getElementById('num1').value;
+    let num2 = document.getElementById('num2').value;
+    let result = Math.pow(Number(num1), 1 / Number(num2)); // Возведение в степень 1/num2
+    document.getElementById("result").innerHTML = "root result: " + result;
+};
+    </script>
+</head>
+
+<body>
+
+    <form>
+        <fieldset class="set_color" >
+            <legend>pick a color</legend>
+            <label for="theme">light theme</label>
+            <input type="radio" name="theme" checked class="light-theme" id="light">
+
+            <label for="theme">   dark theme</label>
+            <input type="radio" name="theme" class="dark" id="dark">
+        </fieldset>
+    </form>
+<br>
+<br>
+    <div class="num1">
+        <label for="">num1:</label>
+        <input type="text" id="num1" name="num1" placeholder="x">
+    </div>
+
+    <div class="num2">
+        <label for="">num2:</label>
+        <input type="text" id="num2" name="num2" placeholder="x">
+    </div>
+
+    <p id="result">__</p>
+    <p>clear numbers:</p>
+    <button onclick="clearNumber()" class="button" >clear</button>
+    <p>arithmetic operations:</p>
+    <button onclick="sum()" class="button">sum</button> 
+    <br>
+    <button onclick="sub()" class="button">sub</button>
+    <br>
+    <button onclick="multyply()" class="button">multiply</button>
+    <br>
+    <button onclick="divide()" class="button">quotient</button>
+    <br>
+    <p>Everything related to exponents:</p>
+    <button onclick="raising()" class="button">raising</button>
+    <br>
+    <button onclick="calculateRoot()" class="button">root</button><label> - num1 is the number we are taking the root of.
+        num2 is the degree of the root.</label>
+    <br>
+    <button onclick="calculateLog()" class="button">log</button><label> - num1 is the argument of the logarithm, - num2 is the base</label>
+
+
+</body>
+
+</html>
